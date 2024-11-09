@@ -16,7 +16,7 @@ EOF
 # Installing Neo4j 5+
 # Either 
  # interactive
-yum -y install neo4j-enterprise-5.25.1
+ # yum -y install neo4j-enterprise-5.25.1
  # non-interactive
 NEO4J_ACCEPT_LICENSE_AGREEMENT=yes yum -y install neo4j-enterprise-5.25.1
 # Enable as a service for reboots
