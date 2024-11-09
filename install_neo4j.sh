@@ -13,7 +13,7 @@ enabled=1
 gpgcheck=1
 EOF
 # Installing Neo4j 5+
-Either 
+# Either 
  # interactive
 yum -y install neo4j-enterprise-5.25.1
  # non-interactive
