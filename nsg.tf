@@ -45,6 +45,20 @@ resource "azurerm_network_security_group" "nsg1" {
     }
 
   security_rule {
+    name                        = "allowhttp7474"
+    priority                    = 105
+    direction                   = "Inbound"
+    access                      = "Allow"
+    protocol                    = "Tcp"
+    source_port_range           = "*"
+    destination_port_range      = "7474"
+    # source_address_prefix       = "10.0.0.0/16"
+    # destination_address_prefix  = "10.0.0.0/16"
+    source_address_prefix       = "*"
+    destination_address_prefix  = "*"    
+    }
+
+  security_rule {
     name                        = "blockall"
     priority                    = 200
     direction                   = "Inbound"

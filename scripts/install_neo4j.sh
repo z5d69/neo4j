@@ -1,9 +1,4 @@
 #!/bin/bash
-# JRE, I think openjdk is not approved in TRM.  Using Oracle JDK instead
-# yum -y install https://builds.openlogic.com/downloadJDK/openlogic-openjdk-jre/22.0.2+9/openlogic-openjdk-jre-22.0.2+9-linux-x64-el.rpm
-yum -y install https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.rpm
-# Neo4j Java adapter 
-yum -y install https://dist.neo4j.org/neo4j-java17-adapter.noarch.rpm
 # Adding Neo4j Repo which is compatible with RHEL9, you can just populate the repo file directly
 rpm --import https://debian.neo4j.com/neotechnology.gpg.key
 cat << EOF >  /etc/yum.repos.d/neo4j.repo
