@@ -29,4 +29,4 @@ sudo yum -y install git
 git clone https://github.com/z5d69/neo4j.git
 cd neo4j/scripts
 chmod 700 install_neo4j.sh
-./install_neo4j.sh
+sudo ./install_neo4j.sh
