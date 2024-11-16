@@ -28,6 +28,7 @@ sudo mount /dev/sdc1 /var/lib/neo4j
 sudo yum -y install https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.rpm
 sudo yum -y install git
 # download repo to neo4j path
+cd ~
 git clone https://github.com/z5d69/neo4j.git
 cd neo4j/scripts
 chmod 700 install_neo4j.sh
