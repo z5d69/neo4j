@@ -82,7 +82,7 @@ tags = var.mod_common_tags
 
 # Data template Bash bootstrapping file
 data "template_file" "rhel-cloud-init" {
-  template = file("customize_system.sh")
+  template = file("scripts/customize_system.sh")
 }
 
 
