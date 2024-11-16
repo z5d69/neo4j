@@ -58,7 +58,7 @@ resource "azurerm_linux_virtual_machine" "rhel8vm" {
   ]
   disable_password_authentication = "true"
   # admin_password = "test4me!!"
-  # custom_data    = base64encode(data.template_file.rhelapache-cloud-init.rendered)
+  custom_data    = base64encode(data.template_file.rhel-cloud-init.rendered)
   admin_ssh_key {
     username   = "azureadmin"
     public_key = var.mod_ssh_public_key
@@ -81,9 +81,9 @@ tags = var.mod_common_tags
 }
 
 # Data template Bash bootstrapping file
-/* data "template_file" "rhelapache-cloud-init" {
-  template = file("rhelapache.sh")
-} */
+data "template_file" "rhel-cloud-init" {
+  template = file("customize_system.sh")
+}
 
 
 
