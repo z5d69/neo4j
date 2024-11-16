@@ -34,6 +34,10 @@ resource "azurerm_network_interface" "connect" {
 tags = var.mod_common_tags  
 }
 
+output "vm_private_ip" {
+  value = azurerm_network_interface.connect[*].private_ip_address
+}
+
 resource "azurerm_managed_disk" "managed_disk" {
   count               = var.mod_vm_count 
   name                 = "data${var.mod_vm_name}${count.index + 1}-md"

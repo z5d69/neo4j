@@ -1,20 +1,22 @@
 #!/bin/bash
 sudo firewall-offline-cmd --add-service=http
 # this is the default http port.  7474.  This will be turned off for real deployments
-sudo firewall-offline-cmd --zone=public --permanent --add-port 7474/tcp
+sudo firewall-offline-cmd --add-port 7474/tcp
 # this is the default bolt port.  7687.  This will be turned on for real deployments.  
-sudo firewall-offline-cmd --zone=public --permanent --add-port 7687/tcp
+sudo firewall-offline-cmd --add-port 7687/tcp
 # Cluster Discovery
-sudo firewall-offline-cmd --zone=public --permanent --add-port 5000/tcp
+sudo firewall-offline-cmd --add-port 5000/tcp
 # Internal Traffic
-sudo firewall-offline-cmd --zone=public --permanent --add-port 6000/tcp
+sudo firewall-offline-cmd --add-port 6000/tcp
 # RAFT
-sudo firewall-offline-cmd --zone=public --permanent --add-port 7000/tcp
+sudo firewall-offline-cmd --add-port 7000/tcp
 # Cluster Routing
-sudo firewall-offline-cmd --zone=public --permanent --add-port 7688/tcp
+sudo firewall-offline-cmd --add-port 7688/tcp
 # restart firewalld
 sudo systemctl restart firewalld
 # configure data disk
+# wait 2 minutes before running so that disk can be brought online.
+sleep 120
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
